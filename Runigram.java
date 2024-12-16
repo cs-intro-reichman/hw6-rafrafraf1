@@ -19,12 +19,12 @@ public class Runigram {
 		//image = flippedHorizontally(tinypic);
 		//image = flippedVertically(tinypic);
 
-		//image = grayScaled(tinypic);
+		//image = blend(tinypic, tinypic, 0.5);
 
-		image = scaled(tinypic, 3, 5);
+		//image = scaled(tinypic, 3, 5);
 
-		System.out.println();
-		print(image);
+		//System.out.println();
+		//print(image);
 	}
 
 	/** Returns a 2D array of Color values, representing the image data
@@ -65,7 +65,7 @@ public class Runigram {
 	// This function is used for debugging purposes.
 	// For example, to check that some image processing function works correctly,
 	// we can apply the function and then use this function to print the resulting image.
-	private static void print(Color[][] image) {
+	public static void print(Color[][] image) {
 		if (image == null) {
 			return;
 		}
@@ -159,11 +159,10 @@ public class Runigram {
 	 * values in the two input color.
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
-		int r = (int) Math.round(alpha*c1.getRed() + (1-alpha)*c2.getRed());
-		int g = (int) Math.round(alpha*c1.getGreen() + (1-alpha)*c2.getGreen());
-		int b = (int) Math.round(alpha*c1.getBlue() + (1-alpha)*c2.getBlue());
-		Color newCol = new Color(r, g, b);
-		return newCol;
+		int r = (int) (alpha*c1.getRed() + ((1-alpha)*c2.getRed()));
+		int g = (int) (alpha*c1.getGreen() + ((1-alpha)*c2.getGreen()));
+		int b = (int) (alpha*c1.getBlue() + ((1-alpha)*c2.getBlue()));
+		return new Color(r, g, b);
 	}
 	
 	/**
