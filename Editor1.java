@@ -11,6 +11,7 @@ import java.awt.Color;
  */
 public class Editor1 {
 
+        @SuppressWarnings("ConvertToStringSwitch")
 	public static void main (String[] args){
 		String fileName = args[0];
 		String action = args[1];
